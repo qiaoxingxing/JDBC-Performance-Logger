@@ -95,6 +95,15 @@ public class DriverConfig {
         }
     }
 
+    public static String getServiceName(){
+        //qxx 可以指定服务名;
+        String name = System.getProperty("jdbcperflogger.servicename");
+        if (name == null) {
+            name = "none";
+        }
+        return name;
+    }
+
     static InputStream openConfigFile() {
         String location = System.getProperty(PerfLoggerConstants.CONFIG_FILE_LOCATION_PROP_KEY);
         if (location == null) {

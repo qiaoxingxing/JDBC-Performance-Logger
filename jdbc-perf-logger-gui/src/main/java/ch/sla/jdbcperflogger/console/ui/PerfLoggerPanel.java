@@ -89,7 +89,7 @@ public class PerfLoggerPanel extends JPanel {
         COLUMNS_WIDTH.put(LogRepositoryConstants.RAW_SQL_COLUMN, 350);
         COLUMNS_WIDTH.put(LogRepositoryConstants.FILLED_SQL_COLUMN, 200);
         COLUMNS_WIDTH.put(LogRepositoryConstants.NB_ROWS_COLUMN, 60);
-        COLUMNS_WIDTH.put(LogRepositoryConstants.THREAD_NAME_COLUMN, 200);
+        COLUMNS_WIDTH.put(LogRepositoryConstants.THREAD_NAME_COLUMN, 300);
         COLUMNS_WIDTH.put(LogRepositoryConstants.EXEC_COUNT_COLUMN, 100);
         COLUMNS_WIDTH.put(LogRepositoryConstants.TOTAL_EXEC_PLUS_RSET_USAGE_TIME_COLUMN, 100);
         COLUMNS_WIDTH.put(LogRepositoryConstants.TIMEOUT_COLUMN, 70);

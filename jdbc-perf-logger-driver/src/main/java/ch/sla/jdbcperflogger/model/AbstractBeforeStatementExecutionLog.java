@@ -1,6 +1,6 @@
-/* 
+/*
  *  Copyright 2013 Sylvain LAURENT
- *     
+ *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,7 @@ package ch.sla.jdbcperflogger.model;
 
 import java.util.UUID;
 
+import ch.sla.jdbcperflogger.DriverConfig;
 import ch.sla.jdbcperflogger.StatementType;
 
 public class AbstractBeforeStatementExecutionLog implements LogMessage {
@@ -38,10 +39,15 @@ public class AbstractBeforeStatementExecutionLog implements LogMessage {
         this.logId = logId;
         this.timestamp = timestamp;
         this.statementType = statementType;
-        this.threadName = threadName;
+//        this.threadName = threadName;
         this.timeout = timeout;
         this.autoCommit = autoCommit;
         this.transactionIsolation = transactionIsolation;
+
+        //qxx 用threadName保存服务名
+        //不能写到getThreadName, 实测无效; 序列化的时候应该是直接取threadName字段的值, 而不是通过get方法;
+        String name = DriverConfig.getServiceName();
+        this.threadName = "[" + name + "]" + threadName;
     }
 
     public UUID getConnectionUuid() {
